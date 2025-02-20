@@ -21,26 +21,26 @@ export default function MainNav() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-20 items-center"> {/* Increased height */}
         <div className="mr-4 md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="hover:bg-primary/10">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-6 pt-4"> {/* Increased gap */}
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary",
+                      "text-base font-medium transition-all duration-200 hover:text-primary hover:translate-x-1",
                       location === item.href
-                        ? "text-foreground"
-                        : "text-foreground/60"
+                        ? "text-primary font-semibold"
+                        : "text-foreground/70"
                     )}
                   >
                     {item.label}
@@ -50,20 +50,22 @@ export default function MainNav() {
             </SheetContent>
           </Sheet>
         </div>
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold text-xl">CA-HUB KENYA</span>
+        <div className="hidden md:flex w-full justify-between items-center">
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="font-bold text-2xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              CA-HUB KENYA
+            </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex items-center space-x-8 text-base font-medium">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "transition-colors hover:text-primary",
+                  "relative py-2 transition-colors duration-200 hover:text-primary",
                   location === item.href
-                    ? "text-foreground"
-                    : "text-foreground/60"
+                    ? "text-primary font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                    : "text-foreground/70"
                 )}
               >
                 {item.label}

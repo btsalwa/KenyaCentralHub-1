@@ -43,12 +43,20 @@ export const galleries = pgTable("galleries", {
   date: timestamp("date").notNull()
 });
 
+// Create insert schemas
 export const insertMemberSchema = createInsertSchema(members);
 export const insertNewsSchema = createInsertSchema(news);
 export const insertEventSchema = createInsertSchema(events);
 export const insertGallerySchema = createInsertSchema(galleries);
 
+// Export types
 export type Member = typeof members.$inferSelect;
 export type News = typeof news.$inferSelect;
 export type Event = typeof events.$inferSelect;
 export type Gallery = typeof galleries.$inferSelect;
+
+// Export insert types
+export type InsertMember = z.infer<typeof insertMemberSchema>;
+export type InsertNews = z.infer<typeof insertNewsSchema>;
+export type InsertEvent = z.infer<typeof insertEventSchema>;
+export type InsertGallery = z.infer<typeof insertGallerySchema>;

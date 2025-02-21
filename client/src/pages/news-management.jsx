@@ -24,6 +24,13 @@ export default function NewsManagement() {
 
   const { data: news, isLoading } = useQuery({
     queryKey: ["/api/news"],
+    queryFn: async () => {
+      const response = await fetch("/api/news");
+      if (!response.ok) {
+        throw new Error("Failed to fetch news");
+      }
+      return response.json();
+    },
   });
 
   const createNews = useMutation({
@@ -33,7 +40,10 @@ export default function NewsManagement() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!response.ok) throw new Error("Failed to create news");
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Failed to create news");
+      }
       return response.json();
     },
     onSuccess: () => {
@@ -60,7 +70,7 @@ export default function NewsManagement() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">News Management</h1>
-      
+
       <div className="grid gap-8 md:grid-cols-2">
         {/* News Creation Form */}
         <Card className="p-6">

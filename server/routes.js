@@ -10,6 +10,7 @@ router.get("/api/news", async (req, res) => {
     const news = await storage.getAllNews();
     res.json(news);
   } catch (error) {
+    console.error('Error fetching news:', error);
     res.status(500).json({ error: "Failed to fetch news" });
   }
 });
@@ -21,6 +22,7 @@ router.post("/api/news", async (req, res) => {
     const news = await storage.createNews(newsData);
     res.status(201).json(news);
   } catch (error) {
+    console.error('Error creating news:', error);
     res.status(400).json({ error: error.message });
   }
 });

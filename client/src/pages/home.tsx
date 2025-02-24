@@ -9,9 +9,12 @@ export default function Home() {
 
       <ContentSection title="About CA-Hub Kenya" className="text-center">
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          Kenya CA-hub is a network/platform of likeminded, multi-sectoral stakeholders 
-          engaged in advocacy and promotion of conservation agriculture and other 
-          climate smart practices through Knowledge sharing and learning.
+          Kenya CA- hub is a network/platform of likeminded, multi-sectoral
+          stakeholders engaged in advocacy and promotion of conservation
+          agriculture and other climate smart practices through Knowledge
+          sharing and learning (contextualized training); Research and
+          development; and Policy advocacy for adoption and mainstreaming of
+          Conservation Agriculture and Climate Smart Agriculture practices.
         </p>
       </ContentSection>
 
@@ -20,18 +23,21 @@ export default function Home() {
           {[
             {
               title: "Delivering CA at Scale",
-              description: "Community-led CA processes based on priorities, needs, knowledge, and capacities",
+              description:
+                "Community-led CA processes based on priorities, needs, knowledge, and capacities",
             },
             {
               title: "Research and Capacity Strengthening",
-              description: "Developing capacity for innovations of smallholder farmers",
+              description:
+                "Developing capacity for innovations of smallholder farmers",
             },
             {
               title: "Partnerships and Policy",
-              description: "Mainstreaming and scaling of CA to national policies and programmes",
+              description:
+                "Mainstreaming and scaling of CA to national policies and programmes",
             },
           ].map((area) => (
-            <Card 
+            <Card
               key={area.title}
               className="h-full hover:shadow-lg transition-shadow duration-300"
             >
@@ -45,6 +51,7 @@ export default function Home() {
               </CardContent>
             </Card>
           ))}
+          <img src="client\assets\hub-diagram.png" alt="diagram" />
         </div>
       </ContentSection>
     </div>

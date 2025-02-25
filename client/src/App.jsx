@@ -12,6 +12,7 @@ import Gallery from "@/pages/gallery";
 import GetInvolved from "@/pages/get-involved";
 import NewsManagement from "@/pages/news-management";
 import NotFound from "@/pages/not-found";
+import MemberForm from "./components/member-form";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
           <Route path="/gallery" component={Gallery} />
           <Route path="/get-involved" component={GetInvolved} />
           <Route path="/news-management" component={NewsManagement} />
+          <Route path="/member-form" component={MemberForm} />
           <Route component={NotFound} />
         </Switch>
       </main>

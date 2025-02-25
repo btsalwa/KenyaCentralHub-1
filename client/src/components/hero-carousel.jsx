@@ -19,7 +19,7 @@ const images = [
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const timeoutRef = useRef<number>();
+  const timeoutRef = useRef();
 
   useEffect(() => {
     const nextSlide = () => {

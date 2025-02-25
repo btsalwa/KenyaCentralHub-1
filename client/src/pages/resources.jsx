@@ -1,10 +1,5 @@
 import ContentSection from "@/components/content-section";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Video, Newspaper } from "lucide-react";
 
 export default function Resources() {
@@ -17,7 +12,8 @@ export default function Resources() {
           {[
             {
               title: "CA Manual",
-              description: "Conservation Agriculture: A Manual for Farmers and Extension Workers in Africa",
+              description:
+                "Conservation Agriculture: A Manual for Farmers and Extension Workers in Africa",
               icon: FileText,
             },
             {
@@ -31,7 +27,10 @@ export default function Resources() {
               icon: FileText,
             },
           ].map((resource) => (
-            <Card key={resource.title} className="hover:bg-muted/50 cursor-pointer">
+            <Card
+              key={resource.title}
+              className="hover:bg-muted/50 cursor-pointer"
+            >
               <CardHeader>
                 <resource.icon className="h-8 w-8 text-primary mb-2" />
                 <CardTitle>{resource.title}</CardTitle>
@@ -54,7 +53,9 @@ export default function Resources() {
             <CardContent>
               <ul className="space-y-4">
                 <li>
-                  <h4 className="font-medium">Building networks and partnerships</h4>
+                  <h4 className="font-medium">
+                    Building networks and partnerships
+                  </h4>
                   <p className="text-sm text-muted-foreground">
                     Paper presented at 3ACCA in Rabat Morocco
                   </p>
@@ -70,8 +71,8 @@ export default function Resources() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Stay updated with our latest newsletter featuring success stories
-                and updates from our members.
+                Stay updated with our latest newsletter featuring success
+                stories and updates from our members.
               </p>
             </CardContent>
           </Card>

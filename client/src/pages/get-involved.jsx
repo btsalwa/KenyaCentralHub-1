@@ -23,6 +23,7 @@ import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { Share2, FileText, ImagePlus, DollarSign, Users } from "lucide-react";
 
+
 const blogSchema = z.object({
   title: z.string().min(1, "Title is required"),
   locality: z.string().min(1, "Locality is required"),
@@ -46,7 +47,7 @@ const mediaSchema = z.object({
 
 export default function GetInvolved() {
   const { toast } = useToast();
-  const [activeForm, setActiveForm] = useState<string | null>(null);
+  const [activeForm, setActiveForm] = useState(null);
 
   const blogForm = useForm({
     resolver: zodResolver(blogSchema),
@@ -78,12 +79,12 @@ export default function GetInvolved() {
     },
   });
 
-  const onSubmit = (values: any) => {
+  const onSubmit = (values) => {
     toast({
       title: "Submission received",
       description: "Thank you for your contribution to CA-Hub Kenya.",
     });
-    
+
     if (activeForm === "blog") blogForm.reset();
     if (activeForm === "success") successStoryForm.reset();
     if (activeForm === "media") mediaForm.reset();
@@ -101,10 +102,11 @@ export default function GetInvolved() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">
-              Join our network of organizations promoting conservation agriculture in Kenya.
+              Join our network of organizations promoting conservation
+              agriculture in Kenya.
             </p>
             <Button variant="outline" asChild>
-              <a href="/member-registration">Apply for Membership</a>
+              <a href="@/components/member-form.jsx">Apply for Membership</a>
             </Button>
           </CardContent>
         </Card>
@@ -116,7 +118,8 @@ export default function GetInvolved() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">
-              Contribute your success stories, blogs, and media to our knowledge base.
+              Contribute your success stories, blogs, and media to our knowledge
+              base.
             </p>
             <Button variant="outline" onClick={() => setActiveForm("blog")}>
               Share Content
@@ -143,7 +146,10 @@ export default function GetInvolved() {
           <AccordionTrigger>Share a Blog</AccordionTrigger>
           <AccordionContent>
             <Form {...blogForm}>
-              <form onSubmit={blogForm.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={blogForm.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={blogForm.control}
                   name="title"
@@ -177,7 +183,7 @@ export default function GetInvolved() {
                     <FormItem>
                       <FormLabel>Blog Content</FormLabel>
                       <FormControl>
-                        <Textarea 
+                        <Textarea
                           placeholder="Write your blog content here"
                           className="min-h-[200px]"
                           {...field}
@@ -197,7 +203,10 @@ export default function GetInvolved() {
           <AccordionTrigger>Share Success Story</AccordionTrigger>
           <AccordionContent>
             <Form {...successStoryForm}>
-              <form onSubmit={successStoryForm.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={successStoryForm.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={successStoryForm.control}
                   name="title"
@@ -231,7 +240,7 @@ export default function GetInvolved() {
                     <FormItem>
                       <FormLabel>Story Description</FormLabel>
                       <FormControl>
-                        <Textarea 
+                        <Textarea
                           placeholder="Describe your success story"
                           className="min-h-[200px]"
                           {...field}
@@ -251,7 +260,10 @@ export default function GetInvolved() {
           <AccordionTrigger>Share Photos/Videos</AccordionTrigger>
           <AccordionContent>
             <Form {...mediaForm}>
-              <form onSubmit={mediaForm.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={mediaForm.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={mediaForm.control}
                   name="caption"
@@ -285,7 +297,7 @@ export default function GetInvolved() {
                     <FormItem>
                       <FormLabel>Description</FormLabel>
                       <FormControl>
-                        <Textarea 
+                        <Textarea
                           placeholder="Describe your media content"
                           className="min-h-[100px]"
                           {...field}
@@ -302,7 +314,10 @@ export default function GetInvolved() {
                     <FormItem>
                       <FormLabel>Media Links</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter media links (optional)" {...field} />
+                        <Input
+                          placeholder="Enter media links (optional)"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

@@ -1,6 +1,7 @@
 import HeroCarousel from "@/components/hero-carousel";
 import ContentSection from "@/components/content-section";
 import { Card, CardContent } from "@/components/ui/card";
+// import hub from "@/assets/hub-diagram.jpg";
 
 export default function Home() {
   return (
@@ -51,7 +52,7 @@ export default function Home() {
               </CardContent>
             </Card>
           ))}
-          <img src="client\assets\hub-diagram.png" alt="diagram" />
+          {/* <img src={hub} alt="hub strategic diagram" />; */}
         </div>
       </ContentSection>
     </div>

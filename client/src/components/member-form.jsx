@@ -52,7 +52,7 @@ export default function MemberForm() {
     },
   });
 
-  function onSubmit(values: any) {
+  function onSubmit(values) {
     toast({
       title: "Form submitted",
       description: "Thank you for your interest in becoming a member.",
@@ -83,10 +83,7 @@ export default function MemberForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Category</FormLabel>
-              <Select
-                onValueChange={field.onChange}
-                defaultValue={field.value}
-              >
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select category" />

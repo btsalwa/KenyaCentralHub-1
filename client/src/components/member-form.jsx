@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { insertMemberSchema } from "@shared/schema";
+// import { insertMemberSchema } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 
 const categories = [

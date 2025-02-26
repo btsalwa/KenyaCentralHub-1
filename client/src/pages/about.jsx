@@ -109,7 +109,7 @@ const About = () => {
                 Optimizing for empowerment
               </h3>
               <p className="text-muted-foreground">
-                <ol>
+                
                   <li>
                     <strong>
                       1. Farmer and community cantered Producers are the core of
@@ -138,7 +138,7 @@ const About = () => {
                       actors in the CA value chain, more so to women and youth
                     </strong>
                   </li>
-                </ol>
+                
               </p>
             </div>
           </div>

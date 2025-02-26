@@ -9,7 +9,7 @@ import OurWork from "@/pages/our-work";
 import Resources from "@/pages/resources";
 import Symposium from "@/pages/symposium";
 import Gallery from "@/pages/gallery";
-import GetInvolved from "@/pages/get-involved";
+// import GetInvolved from "@/pages/get-involved";
 import NewsManagement from "@/pages/news-management";
 import NotFound from "@/pages/not-found";
 import MemberForm from "./components/member-form";
@@ -26,7 +26,7 @@ function Router() {
           <Route path="/resources" component={Resources} />
           <Route path="/symposium" component={Symposium} />
           <Route path="/gallery" component={Gallery} />
-          <Route path="/get-involved" component={GetInvolved} />
+          {/* <Route path="/get-involved" component={GetInvolved} /> */}
           <Route path="/news-management" component={NewsManagement} />
           <Route path="/member-form" component={MemberForm} />
           <Route component={NotFound} />
